@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <Target Name="CopyNupkg" AfterTargets="Pack">
+    <!-- 包含生成的 .nupkg 檔案 -->
+    <ItemGroup>
+      <PackageFile Include="bin/$(Configuration)/$(PackageId).$(PackageVersion).nupkg" />
+    </ItemGroup>
+    <!-- 複製至目標資料夾 -->
+    <Copy SourceFiles="@(PackageFile)" DestinationFolder="$(MSBuildProjectDirectory)/../MyNuGet" />
+  </Target>
+
 </Project>
+
+
