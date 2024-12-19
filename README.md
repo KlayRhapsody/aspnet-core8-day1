@@ -109,3 +109,71 @@ dotnet add package Mylib.Share --version 1.0.0
 dotnet add package Mylib.Share --version 1.1.0
 ```
 - **用途**：將 `Mylib.Share` 的 `1.1.0` 版本加入到當前專案。
+
+
+### **發佈並執行 Console 應用程式**
+
+#### **發佈應用程式**
+```bash
+dotnet publish
+```
+- **用途**：將 Console 應用程式進行編譯並發佈至指定目錄。
+
+#### **檢視目錄內容**
+```bash
+ls -laF
+```
+- **用途**：檢查發佈後的檔案和目錄結構。
+
+#### **執行 Console 應用程式**
+```bash
+./ConsoleApp
+dotnet ./ConsoleApp.dll
+```
+- **用途**：執行已發佈的 Console 應用程式。
+
+
+### **發佈並執行 Web 應用程式**
+
+#### **發佈應用程式**
+```bash
+dotnet publish
+```
+- **用途**：將 Web 應用程式編譯並發佈至指定目錄。
+
+#### **執行 Web 應用程式**
+```bash
+./WebApp
+dotnet WebApp.dll
+```
+- **用途**：執行已發佈的 Web 應用程式。
+
+
+### **檢視 .NET 環境資訊**
+
+#### **顯示系統資訊**
+```bash
+dotnet --info
+```
+- **用途**：顯示目前系統中安裝的 .NET SDK 和運行時的詳細資訊。
+
+#### **複製資訊到剪貼簿（macOS）**
+```bash
+dotnet --info | pbcopy
+```
+- **用途**：將 `dotnet --info` 的輸出複製到剪貼簿，方便後續使用。
+
+
+### **設定 CLI 語言**
+
+#### **切換為英文界面**
+```bash
+export DOTNET_CLI_UI_LANGUAGE=en-us
+```
+- **用途**：設定 .NET CLI 工具的顯示語言為英文。
+
+#### **切換為繁體中文界面**
+```bash
+export DOTNET_CLI_UI_LANGUAGE=zh-tw
+```
+- **用途**：設定 .NET CLI 工具的顯示語言為繁體中文。
