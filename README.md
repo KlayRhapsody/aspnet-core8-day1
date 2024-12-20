@@ -177,3 +177,113 @@ export DOTNET_CLI_UI_LANGUAGE=en-us
 export DOTNET_CLI_UI_LANGUAGE=zh-tw
 ```
 - **用途**：設定 .NET CLI 工具的顯示語言為繁體中文。
+
+### **檢視系統中的 SDK 與運行時**
+
+#### **列出所有已安裝的 SDK**
+```bash
+dotnet --list-sdks
+```
+- **用途**：列出系統中已安裝的 .NET SDK 版本。
+
+#### **列出所有已安裝的運行時**
+```bash
+dotnet --list-runtimes
+```
+- **用途**：列出系統中已安裝的 .NET 運行時版本。
+
+
+### **管理 global.json 與 SDK 版本**
+
+#### **建立指定版本的 global.json**
+```bash
+dotnet new globaljson --sdk-version 8.0.300
+```
+- **用途**：生成一個 `global.json` 檔案，設定 .NET SDK 為 `8.0.300` 版本。
+
+#### **指定滾動版本策略（最新功能版本）**
+```bash
+dotnet new globaljson --sdk-version 8.0.300 --roll-forward latestFeature --force
+```
+- **用途**：生成 `global.json`，並設定使用最新的功能版本。
+
+#### **指定滾動版本策略（最新修補版本）**
+```bash
+dotnet new globaljson --sdk-version 8.0.300 --roll-forward latestPatch --force
+```
+- **用途**：生成 `global.json`，並設定使用最新的修補版本。
+
+#### **移除 global.json 檔案**
+```bash
+rm global.json
+```
+- **用途**：移除與 .NET SDK 版本綁定的 `global.json` 檔案。
+
+
+### **檢視專案的參考與套件**
+
+#### **列出專案的參考**
+```bash
+dotnet list reference
+```
+- **用途**：列出當前專案中添加的所有專案參考。
+
+#### **列出專案的 NuGet 套件**
+```bash
+dotnet list package
+```
+- **用途**：列出當前專案中安裝的所有 NuGet 套件。
+
+
+### **發佈應用程式**
+
+#### **針對特定運行時發佈（macOS ARM 架構）**
+```bash
+dotnet publish -r osx-arm64
+```
+- **用途**：為 macOS ARM 架構生成適用的執行檔。
+
+#### **不包含 App Host 的發佈**
+```bash
+dotnet publish -r osx-arm64 /p:UseAppHost=false
+```
+- **用途**：發佈應用程式，但不生成 App Host 執行檔。
+
+#### **發佈自包含的應用程式**
+```bash
+dotnet publish -r osx-arm64 --self-contained
+```
+- **用途**：生成包含所有依賴項的自包含應用程式。
+
+#### **進階自包含發佈選項**
+```bash
+dotnet publish -c Release --nologo --self-contained -r osx-arm64 -p:PublishSingleFile=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishTrimmed=true
+```
+- **用途**：以釋出模式發佈單一檔案的自包含應用程式，並啟用內嵌原生程式庫和修剪。
+
+
+### **建立與測試 MSTest 專案**
+
+#### **建立 MSTest 專案**
+```bash
+dotnet new mstest -n Mylib.Share.Test
+```
+- **用途**：建立一個名為 `Mylib.Share.Test` 的 MSTest 專案。
+
+#### **新增專案參考**
+```bash
+dotnet add reference ../Mylib.Share/Mylib.Share.csproj
+```
+- **用途**：將 `Mylib.Share` 專案作為參考新增到測試專案中。
+
+#### **將測試專案新增到解決方案**
+```bash
+dotnet sln aspnet-core8-day1.sln add Mylib.Share.Test/Mylib.Share.Test.csproj
+```
+- **用途**：將 `Mylib.Share.Test` 專案加入到解決方案中。
+
+#### **執行測試**
+```bash
+dotnet test
+```
+- **用途**：執行解決方案中所有測試專案的測試方法。
