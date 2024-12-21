@@ -178,36 +178,7 @@ export DOTNET_CLI_UI_LANGUAGE=zh-tw
 ```
 - **用途**：設定 .NET CLI 工具的顯示語言為繁體中文。
 
-### **檢視系統中的 SDK 與運行時**
-
-#### **列出所有已安裝的 SDK**
-```bash
-dotnet --list-sdks
-```
-- **用途**：列出系統中已安裝的 .NET SDK 版本。
-
-#### **列出所有已安裝的運行時**
-```bash
-dotnet --list-runtimes
-```
-- **用途**：列出系統中已安裝的 .NET 運行時版本。
-
-
-### **管理 global.json 與 SDK 版本**
-
-#### **建立指定版本的 global.json**
-```bash
-dotnet new globaljson --sdk-version 8.0.300
-```
-- **用途**：生成一個 `global.json` 檔案，設定 .NET SDK 為 `8.0.300` 版本。
-
-#### **指定滾動版本策略（最新功能版本）**
-```bash
-dotnet new globaljson --sdk-version 8.0.300 --roll-forward latestFeature --force
-```
-- **用途**：生成 `global.json`，並設定使用最新的功能版本。
-
-#### **指定滾動版本策略（最新修補版本）**
+｀版本策略（最新修補版本）**
 ```bash
 dotnet new globaljson --sdk-version 8.0.300 --roll-forward latestPatch --force
 ```
@@ -287,3 +258,5 @@ dotnet sln aspnet-core8-day1.sln add Mylib.Share.Test/Mylib.Share.Test.csproj
 dotnet test
 ```
 - **用途**：執行解決方案中所有測試專案的測試方法。
+
+ 

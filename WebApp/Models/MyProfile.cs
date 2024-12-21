@@ -1,0 +1,8 @@
+namespace WebApp.Models;
+
+public class MyProfile
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; } = "Albert";
+}

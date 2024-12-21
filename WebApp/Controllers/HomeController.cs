@@ -7,12 +7,20 @@ namespace WebApp.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly MyProfile _profile;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, MyProfile profile)
     {
         _logger = logger;
+        _profile = profile;
     }
 
+    public IActionResult Test()
+    {
+        // TODO: Your code here
+        return View(_profile);
+    }
+    
     public IActionResult Index()
     {
         return View();
